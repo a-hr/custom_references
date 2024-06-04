@@ -5,9 +5,10 @@
 Having your own reference files comes in handy when working with custom oligos or plasmids. Here is a step-by-step guide on how to create your own reference files.
 
 - [How to create custom reference files](#how-to-create-custom-reference-files)
-	- [Custom FASTA](#custom-fasta)
-	- [Custom GTF](#custom-gtf)
-	- [Custom BED](#custom-bed)
+  - [Custom FASTA](#custom-fasta)
+  - [FASTA index (`.fai`)](#fasta-index-fai)
+  - [Custom GTF](#custom-gtf)
+  - [Custom BED](#custom-bed)
 
 ## Custom FASTA
 
@@ -18,6 +19,15 @@ The structure of a FASTA file is as follows:
 ```fasta
 >Contig_name
 ACGTACGTACGT # Sequence of the contig
+```
+
+## FASTA index (`.fai`)
+The `.fai` file is a tab-separated file that contains the index of the contigs in the FASTA file. It is created with the `samtools faidx` command.
+
+For example, to create the index of a FASTA file named `human_genome.fa`:
+
+```bash
+samtools faidx human_genome.fa
 ```
 
 ## Custom GTF
