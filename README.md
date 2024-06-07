@@ -9,6 +9,7 @@ Having your own reference files comes in handy when working with custom oligos o
   - [FASTA index (`.fai`)](#fasta-index-fai)
   - [Custom GTF](#custom-gtf)
   - [Custom BED](#custom-bed)
+  - [Custom IGV BAM lists](#custom-igv-bam-lists)
 
 ## Custom FASTA
 
@@ -74,3 +75,15 @@ To convert a GTF file to a BED file:
 ```bash
 gtf2bed < file.gtf > file.bed
 ```
+## Custom IGV BAM lists
+
+When dealing with big projects (hundreds of samples), it is useful to have a list of the BAM files to be visualized in IGV. This list will allow us to dynamically load the files without burning the computer's memory.
+
+To create a list of `.bam` files:
+
+1. Move the target `.bam` files to a single directory. (including the index `.bai` files)
+2. Create a list filw for the group:
+   ```bash
+   cd /path/to/bam/files
+   realpath *.bam > GROUP_NAME.bam.list
+   ```
